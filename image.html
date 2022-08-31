@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!-- Three.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+	<!-- ripple-effect.js -->
+	<script src="ripple-effect.js"></script>
+    <div class="example" style="display:  block; width: 962px; height: 338px;"></div>
+    <script>
+    var rippleDemo = new RippleEffect({
+        parent: document.querySelector('.example'),      
+        texture: 'oceanique',
+        intensity: 0.1,
+        strength: 1.5,
+        area: 1,
+        waveSpeed: 0.001,
+        hover: false,
+        speedIn: 1.1,
+        speedOut: 1,
+        easing: 'Expo.easeOut',
+    });
+
+    rippleDemo.start();
+
+    </script>
+
+</body>
+
+</html>
