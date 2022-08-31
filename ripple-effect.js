@@ -70,8 +70,8 @@ const RippleEffect = function (opts) {
                 1.0 / 1.333
             );
 
-            vec3 _texture = texture2D(image, uv).rgb;
-            gl_FragColor = vec4(_texture,1.0);            
+            vec4 _texture = texture2D(image, uv);
+            gl_FragColor = _texture;      
         }   
     `;
 
@@ -112,10 +112,11 @@ const RippleEffect = function (opts) {
     );
     camera.position.z = 1;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: false });
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
 
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0xffffff, 0.0);
+    // renderer.setClearColor(0xffffff, 0.0);
+    renderer.setClearColor( 0x000000, 0,0 ); // the default
     renderer.setSize(parent.offsetWidth, parent.offsetHeight);
     parent.appendChild(renderer.domElement);
 
@@ -139,6 +140,8 @@ const RippleEffect = function (opts) {
         vertexShader: vertex,
         fragmentShader: fragment,
         transparent: true,
+        opacity: 0.5,
+        alphaTest: 0.5
     });
 
     const geometry = new THREE.PlaneBufferGeometry(
@@ -148,6 +151,7 @@ const RippleEffect = function (opts) {
     );
     const object = new THREE.Mesh(geometry, mat);
     scene.add(object);
+    scene.background = null;
 
     const addEvents = function () {
         const evtIn = "mouseenter";
