@@ -1,4 +1,4 @@
-const RippleEffect = function (opts) {
+window.RippleEffect = function (opts) {
     let vertex = `
         varying vec2 vUv;
         
