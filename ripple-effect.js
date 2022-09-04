@@ -107,11 +107,14 @@ window.RippleEffect = function (opts) {
     camera.position.z = 1;
 
     const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
-
     renderer.setPixelRatio(window.devicePixelRatio);
     // renderer.setClearColor(0xffffff, 0.0);
     renderer.setClearColor( 0x000000, 0,0 ); // the default
     renderer.setSize(parent.offsetWidth, parent.offsetHeight);
+
+
+console.log(renderer.domElement);
+
     parent.appendChild(renderer.domElement);
 
     const loader = new THREE.TextureLoader();
