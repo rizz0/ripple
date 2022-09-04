@@ -175,9 +175,9 @@ window.RippleEffect = function (opts) {
         addEvents();
     }
 
-    // window.addEventListener("resize", function () {
-    //     renderer.setSize(parent.offsetWidth, parent.offsetHeight);
-    // });
+    window.addEventListener("resize", function () {
+        renderer.setSize(parent.offsetWidth, parent.offsetHeight);
+    });
 
 
     this.start = function () {
